@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="CPT-TCP-mobile\CPT-UDP-mobile.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.cc64b2ad" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CPT-TCP-mobile\MainActivity.cs">
+    <Files>
+      <File FileName="CPT-TCP-mobile\MainActivity.cs" Line="4" Column="23" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CPT-UDP-mobile AndroidDesignerPreferredDevice="Nexus 4" AndroidDesignerPreferredTheme="Theme.Black.NoTitleBar" />
+</Properties>

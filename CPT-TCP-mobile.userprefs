@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="CPT-TCP-mobile\CPT-TCP-mobile.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.cc64b2ad" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CPT-TCP-mobile\MainActivity.cs">
+    <Files>
+      <File FileName="CPT-TCP-mobile\MainActivity.cs" Line="152" Column="1" />
+      <File FileName="CPT-TCP-mobile\Toolbox.cs" Line="1" Column="1" />
+      <File FileName="CPT-TCP-mobile\Cryptography.cs" Line="1" Column="1" />
+      <File FileName="CPT-TCP-mobile\Properties\AndroidManifest.xml" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CPT-TCP-mobile AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>
