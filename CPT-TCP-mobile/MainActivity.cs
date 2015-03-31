@@ -63,6 +63,12 @@ namespace CPTTCPmobile
 					{
 						udpServer.Connect(new IPEndPoint(IPAddress.Parse(txtIP.Text),8100));
 						recieverIP = txtIP.Text;
+						string knock = "#holepunch#"; // We open the incoming port 2280 by sending at it
+						ASCIIEncoding asen = new ASCIIEncoding();
+						byte[] ba = asen.GetBytes(knock);
+						udpServer.Send(ba, ba.Length);
+						txtMessages.Append("\n\t[recieved knock]\n");
+						txtMessages.SetSelection(txtMessages.Length());
 					}
 					catch(Exception ex)
 					{
@@ -206,19 +212,20 @@ namespace CPTTCPmobile
 					var receivedResults = udpServer.Receive(ref remoteEndPoint);
 					recievedText = Encoding.ASCII.GetString(receivedResults);
 
-					//Update remote ip
-					if(recieverIP == "") udpServer.Connect(remoteEndPoint);
-					RunOnUiThread (() => txtIP.Text = remoteEndPoint.Address.ToString());
-					recieverIP = remoteEndPoint.Address.ToString();
-
-					
 					if(recieverIP == "") 
 					{
+						udpServer.Connect(remoteEndPoint);
 						recieverIP = remoteEndPoint.Address.ToString(); // Update the reciever IP if new connection
 						RunOnUiThread (() => btnConnect.Text = "Close");
 						RunOnUiThread (() => txtIP.Text = recieverIP);
 					}
 
+					if(recievedText.Contains("#holepunch#"))
+					{
+						RunOnUiThread (() => txtMessages.Append("\n[recieved knock]\n\t"));
+						RunOnUiThread (() => txtMessages.SetSelection(txtMessages.Length())); // scroll to end
+						continue;
+					}
 					// Check for public key in the message
 					if (recievedText.Contains("#publicKeyStarts#"))
 					{
