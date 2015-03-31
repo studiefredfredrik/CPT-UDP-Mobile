@@ -16,7 +16,7 @@ using System.Threading;
 
 namespace CPTTCPmobile
 {
-	[Activity (Label = "CPT-TCP-mobile", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "CryptoPeerTalk for Android", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		Button btnConnect;

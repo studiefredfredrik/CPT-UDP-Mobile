@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="CPT-TCP-mobile\CPT-UDP-mobile.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.cc64b2ad" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CPT-TCP-mobile\MainActivity.cs">
     <Files>
-      <File FileName="CPT-TCP-mobile\MainActivity.cs" Line="215" Column="1" />
+      <File FileName="CPT-TCP-mobile\MainActivity.cs" Line="34" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

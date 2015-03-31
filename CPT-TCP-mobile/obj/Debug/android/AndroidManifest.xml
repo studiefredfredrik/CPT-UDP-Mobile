@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="CPT_TCP_mobile.CPT_TCP_mobile">
   <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15" />
   <application android:label="CPT-TCP-mobile" android:name="mono.android.app.Application" android:debuggable="true">
-    <activity android:icon="@drawable/icon" android:label="CPT-TCP-mobile" android:name="cpttcpmobile.MainActivity">
+    <activity android:icon="@drawable/icon" android:label="CryptoPeerTalk for Android" android:name="cpttcpmobile.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
