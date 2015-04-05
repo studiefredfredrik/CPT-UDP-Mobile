@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPT-UDP-mobile", "CPT-TCP-mobile\CPT-UDP-mobile.csproj", "{71DA6EF4-593A-44FE-B5B6-A17CF727CD74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D46A98D-70E4-4B81-B966-D46AC6A22EC4}"
-	ProjectSection(SolutionItems) = preProject
-		Mono.Nat.dll = Mono.Nat.dll
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

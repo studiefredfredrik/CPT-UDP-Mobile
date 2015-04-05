@@ -1,18 +1,14 @@
 ﻿using System;
-
 using Android.App;
-using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-
 using System.Net;
 using System.Net.Sockets;
-using System.IO;
-
 using System.Text;
 using System.Threading;
+using Android.Text;
+
 
 namespace CPTTCPmobile
 {
@@ -29,9 +25,14 @@ namespace CPTTCPmobile
 
 		private Cryptography crypto;
 
-		const int port = 8100;
+		const int port = 2280;
 		string recieverIP = "";
 		UdpClient udpServer;
+
+		string separator = "\n\t";
+		string htmlSeparator = "<br>&thinsp;";
+		string fontStartBlue = "<font color=grey>";
+		string fontStopBlue = "</font>";
 
 		public static string remotePublicKey = "";
 		public static bool keySendt = false;
@@ -61,13 +62,13 @@ namespace CPTTCPmobile
 					btnConnect.Text = "Close";
 					try
 					{
-						udpServer.Connect(new IPEndPoint(IPAddress.Parse(txtIP.Text),8100));
+						udpServer.Connect(new IPEndPoint(IPAddress.Parse(txtIP.Text),port));
 						recieverIP = txtIP.Text;
 						string knock = "#holepunch#"; // We open the incoming port 2280 by sending at it
 						ASCIIEncoding asen = new ASCIIEncoding();
 						byte[] ba = asen.GetBytes(knock);
 						udpServer.Send(ba, ba.Length);
-						txtMessages.Append("\n\t[recieved knock]\n");
+						txtMessages.Append("\n[recieved knock]");
 						txtMessages.SetSelection(txtMessages.Length());
 					}
 					catch(Exception ex)
@@ -77,6 +78,7 @@ namespace CPTTCPmobile
 				}
 				else if(btnConnect.Text == "Close")
 				{
+					udpServer.Close();
 					System.Environment.Exit(0);
 				}
 			};
@@ -86,7 +88,7 @@ namespace CPTTCPmobile
 				// Start encrypted mode on connect
 				string wrappedKey = "#publicKeyStarts#" + crypto.publicKey + "#publicKeyStops#";
 				udpSend(wrappedKey);
-				txtMessages.Append("\n[sent public key]\n\t");
+				txtMessages.Append("\n[sent public key]");
 				txtMessages.SetSelection(txtMessages.Length());
 				keySendt = true;
 			};
@@ -96,7 +98,7 @@ namespace CPTTCPmobile
 				{
 					if (remotePublicKey == "")
 					{
-						txtMessages.Append("\nYou: [uncrypted]\n\t" + txtSend.Text);
+						txtMessages.Append(Html.FromHtml("<br>" + fontStartBlue+ "<br>You: [uncrypted]" + htmlSeparator + "&emsp;" + txtSend.Text + fontStopBlue));
 						txtMessages.SetSelection(txtMessages.Length());
 						// send message unencrypted
 						udpSend(txtSend.Text);
@@ -104,7 +106,7 @@ namespace CPTTCPmobile
 					}
 					else
 					{
-						txtMessages.Append("\nYou: [crypted]\n\t" + txtSend.Text);
+						txtMessages.Append(Html.FromHtml("<br>" + fontStartBlue+ "<br>You:" + htmlSeparator + txtSend.Text + fontStopBlue));
 						txtMessages.SetSelection(txtMessages.Length());
 						// Send message encrypted
 						string sendmsg = crypto.EncryptMessage(remotePublicKey, txtSend.Text);
@@ -126,7 +128,7 @@ namespace CPTTCPmobile
 					{
 						if (remotePublicKey == "")
 						{
-							txtMessages.Append("\nYou: [uncrypted]\n\t" + txtSend.Text);
+							txtMessages.Append(Html.FromHtml("<br>" + fontStartBlue+ "<br>You: [uncrypted]" + htmlSeparator + "&emsp;" + txtSend.Text + fontStopBlue));
 							txtMessages.SetSelection(txtMessages.Length());
 							// send message unencrypted
 							udpSend(txtSend.Text);
@@ -134,7 +136,7 @@ namespace CPTTCPmobile
 						}
 						else
 						{
-							txtMessages.Append("\nYou: [crypted]\n\t" + txtSend.Text);
+							txtMessages.Append(Html.FromHtml("<br>" + fontStartBlue+ "<br>You:" + htmlSeparator + txtSend.Text + fontStopBlue));
 							txtMessages.SetSelection(txtMessages.Length());
 							// Send message encrypted
 							string sendmsg = crypto.EncryptMessage(remotePublicKey, txtSend.Text);
@@ -159,7 +161,7 @@ namespace CPTTCPmobile
 						btnConnect.Text = "Close";
 						try
 						{
-							udpServer.Connect(new IPEndPoint(IPAddress.Parse(txtIP.Text),8100));
+							udpServer.Connect(new IPEndPoint(IPAddress.Parse(txtIP.Text),port));
 							recieverIP = txtIP.Text;
 						}
 						catch(Exception ex)
@@ -173,7 +175,7 @@ namespace CPTTCPmobile
 			try
 			{
 				// init the crypto object
-				udpServer = new UdpClient(8100);
+				udpServer = new UdpClient(port);
 				crypto = new Cryptography();
 				Thread thread = new Thread(new ThreadStart(WorkThreadFunction));
 				thread.Start();
@@ -222,7 +224,7 @@ namespace CPTTCPmobile
 
 					if(recievedText.Contains("#holepunch#"))
 					{
-						RunOnUiThread (() => txtMessages.Append("\n[recieved knock]\n\t"));
+						RunOnUiThread (() => txtMessages.Append("\n[recieved knock]"));
 						RunOnUiThread (() => txtMessages.SetSelection(txtMessages.Length())); // scroll to end
 						continue;
 					}
@@ -230,14 +232,14 @@ namespace CPTTCPmobile
 					if (recievedText.Contains("#publicKeyStarts#"))
 					{
 						remotePublicKey = Toolbox.GetStringBetweenStrings(recievedText, "#publicKeyStarts#", "#publicKeyStops#");
-						RunOnUiThread (() => txtMessages.Append("\n[recieved public key]\n\t"));
+						RunOnUiThread (() => txtMessages.Append("\n[recieved public key]"));
 						RunOnUiThread (() => txtMessages.SetSelection(txtMessages.Length())); // scroll to end
 						if(!keySendt)
 						{
 							// send key if not sent
 							string wrappedKey = "#publicKeyStarts#" + crypto.publicKey + "#publicKeyStops#";
 							udpSend(wrappedKey);
-							RunOnUiThread (() => txtMessages.Append("\n[sent public key]\n\t"));
+							RunOnUiThread (() => txtMessages.Append("\n[sent public key]"));
 							RunOnUiThread (() => txtMessages.SetSelection(txtMessages.Length()));
 							keySendt = true;
 						}
@@ -247,12 +249,12 @@ namespace CPTTCPmobile
 					if (remotePublicKey == "" && !recievedText.Contains("#publicKeyStarts#"))
 					{
 						// Invoke. Casting to action makes it act as a delegate, allowing thread safe operations.
-						RunOnUiThread (() => txtMessages.Append("\nRemote: [uncrypted]\n\t" + recievedText));
+						RunOnUiThread (() => txtMessages.Append("\nRemote: [uncrypted]"+separator + recievedText));
 						RunOnUiThread (() => txtMessages.SetSelection(txtMessages.Length()));
 					}
 					else if (!recievedText.Contains("#publicKeyStarts#"))
 					{
-						RunOnUiThread (() => txtMessages.Append("\nRemote: [crypted]\n\t" + crypto.DecryptMessage(recievedText)));
+						RunOnUiThread (() => txtMessages.Append("\nRemote:"+separator + crypto.DecryptMessage(recievedText)));
 						RunOnUiThread (() => txtMessages.SetSelection(txtMessages.Length()));
 					}
 				}

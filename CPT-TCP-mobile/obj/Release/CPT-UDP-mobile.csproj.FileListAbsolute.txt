@@ -1,0 +1,16 @@
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\bin\Release\CPT-TCP-mobile.dll
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\bin\Release\CPT-TCP-mobile.pdb
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\CPT-TCP-mobile.dll
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\CPT-TCP-mobile.pdb
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\res\layout\main.xml
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\res\values\strings.xml
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\res\drawable-hdpi\icon.png
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\res\drawable-mdpi\icon.png
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\res\drawable-xhdpi\icon.png
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\res\drawable-xxhdpi\icon.png
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\res\drawable-xxxhdpi\icon.png
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\R.cs.flag
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\uploadflags.txt
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\bin\Release\com.cryptopeertalk.mobile.apk
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\bin\Release\com.cryptopeertalk.mobile-Signed.apk
+C:\Users\Fredrik\Documents\GitHub\CPT-UDP-Mobile\CPT-TCP-mobile\obj\Release\android\bin\com.cryptopeertalk.mobile.apk
