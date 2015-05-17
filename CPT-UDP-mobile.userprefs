@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="CPT-TCP-mobile\CPT-UDP-mobile.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CPT-TCP-mobile\MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CPT-TCP-mobile\Cryptography.cs">
     <Files>
-      <File FileName="CPT-TCP-mobile\MainActivity.cs" Line="200" Column="30" />
+      <File FileName="CPT-TCP-mobile\MainActivity.cs" Line="23" Column="20" />
       <File FileName="CPT-TCP-mobile\Resources\Resource.designer.cs" Line="1" Column="1" />
+      <File FileName="CPT-TCP-mobile\Cryptography.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
